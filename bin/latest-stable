@@ -9,4 +9,5 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 source "${plugin_dir}/lib/utils.bash"
 
 latest_release=$(curl "${curl_opts[@]}" "https://api.github.com/repos/astral-sh/ruff/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/^v//')
+
 printf "%s\n" "$latest_release"
